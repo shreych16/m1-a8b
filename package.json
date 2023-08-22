@@ -1,0 +1,17 @@
+{
+  "name": "m1-a8b",
+  "version": "1.0.0",
+  "description": "",
+  "main": "serverFile2.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node serverFile2.js"  
+  },
+  "keywords": ["node","build"],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.2"
+  }
+}
