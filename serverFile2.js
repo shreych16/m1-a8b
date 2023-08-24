@@ -83,7 +83,7 @@ app.get("/shops", function (req, res) {
     let product = req.query.product;
     
         arr1 = filterParam(arr1, "productid", product, Data.products);
-        arr1 = filterParam2(arr1, "shopid", shop, Data.shops);
+        arr1 = filterParam2(arr1, "shopid", shop);
         if(sort==="QtyAsc") arr1.sort((st1,st2) => st1.quantity-st2.quantity);
         if(sort==="QtyDesc") arr1.sort((st1,st2) => st2.quantity-st1.quantity);
         if(sort==="ValueAsc") arr1.sort((st1,st2) => (st1.price*st1.quantity)-(st2.price*st2.quantity));
@@ -98,21 +98,17 @@ app.get("/shops", function (req, res) {
     console.log(arr2);
     let valuesArr = values.split(",");
     console.log(valuesArr);
-    let ar = arr2.filter((a1) => valuesArr.find((val) => val === a1.productname));
-    console.log(ar);
-    let arr1 = arr.filter((a1) => ar.find((val) => val.productid === a1[nam]));
+    let arr1 = arr.filter((a1) => valuesArr.find((val) => +(val.substring(2, )) === a1[nam]));
     console.log(arr1);
     return arr1;
   };
 
-  let filterParam2 = (arr, nam, values, arr2) => {
+  let filterParam2 = (arr, nam, values) => {
     if (!values) return arr;
-    console.log(arr2);
-    let valuesArr = values.split(",");
-    console.log(valuesArr);
-    let ar = arr2.filter((a1) => valuesArr.find((val) => val === a1.name));
-    console.log(ar);
-    let arr1 = arr.filter((a1) => ar.find((val) => val.shopid === a1[nam]));
+    console.log(arr,nam,values);
+    let id = values.substring(2, );
+    console.log(id)
+    let arr1 = arr.filter((a1) => a1.shopid === +(id));
     console.log(arr1);
     return arr1;
   };
